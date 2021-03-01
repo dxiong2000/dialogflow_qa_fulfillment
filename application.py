@@ -20,14 +20,15 @@ def fulfillment():
 			data = request.data
 			data_json = json.loads(data)
 
-			query_result = data_json['queryResult']		
+			query_result = data_json['queryResult']
 			param = query_result['parameters']['param-name']
 			intent_name = query_result['intent']['displayName']
 
 			faq_df = pd.read_excel('intent_faqs.xlsx', sheet_name = 'Sheet1', engine='openpyxl')
 			faq_intent_df = faq_df[faq_df['Intent'] == intent_name]
 			faq_intent_param_df = faq_df[faq_df['Parameter'] == param]
-			text_message = faq_intent_param_df['Response'][1]
+			faq_intent_param_df = faq_intent_param_df.reset_index(drop=True)
+			text_message = faq_intent_param_df['Response'][0]
 
 		except KeyError:
 			text_message = constants.ERROR_MESSAGE

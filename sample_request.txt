@@ -7,7 +7,7 @@ curl --request   POST                               \
   "queryResult": {
     "queryText": "End-user expression",
     "parameters": {
-      "param-name": "param-value"
+      "param-name": "test_param"
     },
     "allRequiredParamsPresent": true,
     "fulfillmentText": "Response configured for matched intent",
@@ -31,7 +31,7 @@ curl --request   POST                               \
     ],
     "intent": {
       "name": "projects/project-id/agent/intents/intent-id",
-      "displayName": "matched-intent-name"
+      "displayName": "test_intent"
     },
     "intentDetectionConfidence": 1,
     "diagnosticInfo": {},
@@ -39,7 +39,7 @@ curl --request   POST                               \
   },
   "originalDetectIntentRequest": {}
 }'       \
-           http://127.0.0.1:5000/fulfillment
+           https://dialogflow-qa-fulfillment.herokuapp.com/fulfillment
 
 
 
