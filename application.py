@@ -21,10 +21,10 @@ def fulfillment():
 		try:			
 			data = request.data
 			data_json = json.loads(data)
-			print(data_json)
 
 			query_result = data_json['queryResult']
-			param = query_result['parameters']['param-name']
+			print(query_result)
+			param = query_result['parameters']['lab_test_type']
 			intent_name = query_result['intent']['displayName']
 			print(param, intent_name)
 
