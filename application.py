@@ -14,16 +14,18 @@ def home():
 def fulfillment():
 
 	if request.method == 'POST':
+     
+		print("request recieved")
 
 		text_message = ''
 		try:			
 			data = request.data
 			data_json = json.loads(data)
+			print(data_json)
 
 			query_result = data_json['queryResult']
 			param = query_result['parameters']['param-name']
 			intent_name = query_result['intent']['displayName']
-			print(data_json)
 			print(param, intent_name)
 
 			faq_df = pd.read_excel('intent_faqs.xlsx', sheet_name = 'Sheet1', engine='openpyxl')
