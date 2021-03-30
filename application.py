@@ -23,7 +23,7 @@ def fulfillment():
 			data_json = json.loads(data)
 
 			query_result = data_json['queryResult']
-			lab_test_type = query_result['parameters']['lab_test_type']
+			lab_test_type = query_result['parameters']['Lab_Tests'][0]
 			intent_name = query_result['intent']['displayName']
 			
 			faq_df = pd.read_excel('intents_and_responses.xlsx', sheet_name = 'Sheet1', engine='openpyxl')
